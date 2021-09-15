@@ -1,0 +1,42 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/cash?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: cash
+    password: Od!ilbe1k23
+  liquibase:
+    change-log: liquibase/db.changelog-main.xml
+    url: jdbc:mysql://localhost:3306/cash?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    user: cash
+    password: Od!ilbe1k23
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 8MB
+      enabled: true
+  mvc:
+    format:
+      date: dd/MM/yyyy
+server:
+  port: 8088
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+security:
+  signing-key: <signing-key>
+springdoc:
+  swagger-ui:
+    oauth:
+      use-pkce-with-authorization-code-grant: true
+      client-id: test
+    path: /sw
+  api-docs:
+    path: /v2/api
+storage:
+  location: src/main/resources/upload
